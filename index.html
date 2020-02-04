@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eco</title>
+</head>
+<body>
+<ul id="linklist" />
+<script>
+  var root = 'http://audiocdn.economist.com/sites/default/files/AudioArchive/';
+  var issuePre = '/Issue_';
+  var suffix = '_The_Economist_Full_edition.m4a';
+  var startDate = new Date(Date.parse('2020-01-25'))
+  var startIssue = 9178
+  var list = document.getElementById('linklist')
+
+  for (var i = 0; i < 100; i++) {
+    var cd = startDate
+    cd.setDate(cd.getDate() + i * 7);
+    var year = cd.getFullYear().toString();
+    var isodate = cd.toISOString().replace(/-/g, '').substr(0, 8);
+    var link = root + year + '/' + isodate + issuePre + (startIssue + i).toString() + '_' + isodate + suffix;
+    console.log(i + ': ' + link);
+
+    li = document.createElement('li');
+    a = document.createElement('a')
+    a.appendChild(document.createTextNode(isodate));
+    a.href = link;
+    li.appendChild(a)
+
+    list.appendChild(li)
+
+    if (cd - new Date() > 0) break;
+}
+</script>
+</body>
+</html>
