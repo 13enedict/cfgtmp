@@ -16,7 +16,6 @@
 
   for (var i = 0; i < 100; i++) {
     var cd = startDate
-    cd.setDate(cd.getDate() + i * 7);
     var year = cd.getFullYear().toString();
     var isodate = cd.toISOString().replace(/-/g, '').substr(0, 8);
     var link = root + year + '/' + isodate + issuePre + (startIssue + i).toString() + '_' + isodate + suffix;
@@ -31,6 +30,8 @@
     list.appendChild(li)
 
     if (cd - new Date() > 0) break;
+
+    cd.setDate(cd.getDate() + 7);
 }
 </script>
 </body>
