@@ -1,0 +1,20 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+
+<div id="myCounter">
+</div>
+
+<script type="text/javascript">
+
+        var eventTime= 1608768000; // Timestamp - Sun, 21 Apr 2013 13:00:00 GMT
+        var currentTime = Math.floor(Date.now() / 1000); // Timestamp - Sun, 21 Apr 2013 12:30:00 GMT
+        var diffTime = eventTime - currentTime;
+        var duration = moment.duration(diffTime*1000, 'milliseconds');
+        var interval = 1000;
+
+        setInterval(function(){
+          duration = moment.duration(duration - interval, 'milliseconds');
+          document.getElementById("myCounter").innerHTML = "Anna, Christmas is in " + duration.days() + ' days, ' + duration.hours() + " hours, " + duration.minutes() + " minutes and " + duration.seconds() + ' seconds'
+        }, interval);
+
+
+    </script>
