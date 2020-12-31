@@ -14,7 +14,7 @@
   var startIssue = 9178
   var list = document.getElementById('linklist')
 
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 150; i++) {
     var cd = startDate
     var year = cd.getFullYear().toString();
     var isodate = cd.toISOString().replace(/-/g, '').substr(0, 8);
@@ -31,7 +31,8 @@
 
     if (cd - new Date() > 0) break;
 
-    cd.setDate(cd.getDate() + 7);
+    const daysInc = (i + 5) % 52 == 0 ? 14 : 7
+    cd.setDate(cd.getDate() + daysInc);
 }
 </script>
 </body>
