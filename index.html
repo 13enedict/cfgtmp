@@ -34,7 +34,7 @@
     if (cd - new Date() > 0) break;
 
     const xmas = (i + 5) % 52 == 0
-    const isDouble = doubles.includes(issueNum + 1)
+    const isDouble = doubles.includes(issueNum - 1)
     const daysInc = xmas || isDouble ? 14 : 7
     cd.setDate(cd.getDate() + daysInc);
 }
