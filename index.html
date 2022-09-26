@@ -13,7 +13,7 @@
   var startDate = new Date(Date.parse('2020-01-25 02:00:00'))
   var startIssue = 9178
   var list = document.getElementById('linklist')
-  const doubles = [9308]
+  const doubles = [9307]
 
   for (var i = 0; i < 150; i++) {
     const issueNum = startIssue + i
@@ -34,7 +34,7 @@
     if (cd - new Date() > 0) break;
 
     const xmas = (i + 5) % 52 == 0
-    const isDouble = doubles.includes(issueNum - 1)
+    const isDouble = doubles.includes(issueNum)
     const daysInc = xmas || isDouble ? 14 : 7
     cd.setDate(cd.getDate() + daysInc);
 }
