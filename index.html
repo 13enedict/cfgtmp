@@ -13,12 +13,14 @@
   var startDate = new Date(Date.parse('2020-01-25 02:00:00'))
   var startIssue = 9178
   var list = document.getElementById('linklist')
+  const doubles = [9308]
 
   for (var i = 0; i < 150; i++) {
+    const issueNum = startIssue + i
     var cd = startDate
     var year = cd.getFullYear().toString();
     var isodate = cd.toISOString().replace(/-/g, '').substr(0, 8);
-    var link = root + year + '/' + isodate + issuePre + (startIssue + i).toString() + '_' + isodate + suffix;
+    var link = root + year + '/' + isodate + issuePre + (issueNum).toString() + '_' + isodate + suffix;
     console.log(i + ': ' + link);
 
     li = document.createElement('li');
@@ -31,7 +33,9 @@
 
     if (cd - new Date() > 0) break;
 
-    const daysInc = (i + 5) % 52 == 0 ? 14 : 7
+    const xmas = (i + 5) % 52 == 0
+    const isDouble = doubles.includes(issueNum)
+    const daysInc = xmas || isDouble ? 14 : 7
     cd.setDate(cd.getDate() + daysInc);
 }
 </script>
