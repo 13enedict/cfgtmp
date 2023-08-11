@@ -24,13 +24,13 @@
     var link = root + year + '/' + isodate + issuePre + (issueNum).toString() + '_' + isodate + suffix;
     console.log(i + ': ' + link);
 
-    li = document.createElement('li');
+    var li = document.createElement('li');
     a = document.createElement('a')
     a.appendChild(document.createTextNode(isodate));
     a.href = link;
-    last = li.insertBefore(a, last)
+    li.appendChild(a)
 
-    list.appendChild(li)
+    last = list.appendChild(li, last)
 
     if (cd - new Date() > 0) break;
 
