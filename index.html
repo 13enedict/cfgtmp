@@ -13,7 +13,8 @@
   var startDate = new Date(Date.parse('2020-01-25 02:00:00'))
   var startIssue = 9178
   var list = document.getElementById('linklist')
-  const doubles = [9307, 9327]
+  const doubles = [9307, 9327, 9357]
+  let last = null;
 
   for (var i = 0; i < 260; i++) {
     const issueNum = startIssue + i
@@ -27,7 +28,7 @@
     a = document.createElement('a')
     a.appendChild(document.createTextNode(isodate));
     a.href = link;
-    li.appendChild(a)
+    last = li.insertBefore(a, last)
 
     list.appendChild(li)
 
